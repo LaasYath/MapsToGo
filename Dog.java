@@ -1,6 +1,6 @@
 public class Dog {
 
-    public static void main(Stinr[] args){
+    public static void main(String[] args){
 
 
     }
