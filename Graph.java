@@ -2,6 +2,7 @@ import java.util.List;
 
 public interface Graph<E>
 {
+	//Laasy'a test
 	/**
      *	Add a node to the graph
      *
