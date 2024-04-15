@@ -20,4 +20,32 @@ public class City
         // initialise instance variables
         city = null;
     }
+
+    public void setCity(WeightedAdjacencyListGraph city){
+
+        this.city = city;
+    }
+
+    public String findShortestRoute(String pointA, String pointB){
+
+        String fastestRoute = "";
+
+        if (!city.contains(pointA) || !city.contains(pointB))
+            return "";
+
+        fastestRoute += pointA;
+
+        ArrayList<Object> neighbors = city.getNeighborWeights(pointA);
+
+        for (Object node: neighbors){
+
+            if (city.get(2)) {
+
+            }
+        }
+
+
+
+        return fastestRoute;
+    }
 }

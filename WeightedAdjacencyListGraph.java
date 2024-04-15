@@ -9,7 +9,7 @@ public class WeightedAdjacencyListGraph<E> extends AdjacencyListGraph<E> impleme
     /**
      *  A mapping between a Node and a map of Neighbor->Weight
      */
-    private Map<E, Map<E, Integer>> weights;
+    protected Map<E, Map<E, Integer>> weights;
 
     //CONSTRUCTORS
     public WeightedAdjacencyListGraph() 
