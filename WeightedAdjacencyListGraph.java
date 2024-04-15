@@ -9,13 +9,13 @@ public class WeightedAdjacencyListGraph<E> extends AdjacencyListGraph<E> impleme
     /**
      *  A mapping between a Node and a map of Neighbor->Weight
      */
-    private Map<E, Map<E, Integer>> weights;
+    private Map<E, ArrayList<Object>> weights;
 
     //CONSTRUCTORS
     public WeightedAdjacencyListGraph() 
     {
         //initialize instance variables
-        weights = new HashMap<E, Map<E, Integer>>();
+        weights = new HashMap<E, ArrayList<Object>>();
     }
 
     //METHODS
@@ -36,7 +36,7 @@ public class WeightedAdjacencyListGraph<E> extends AdjacencyListGraph<E> impleme
         //TODO: if the node was successfully added, create a mapping between the node and a new HashMap<E, Integer>
         if(super.add(node)){
 
-            weights.put(node, new HashMap<E, Integer>());
+            weights.put(node, new ArrayList<Object>());
             return true;
         }
 
@@ -52,12 +52,17 @@ public class WeightedAdjacencyListGraph<E> extends AdjacencyListGraph<E> impleme
      *  @param to the node to set the weight to
      *  @param the weight to set
      */
-    public void setWeight(E from, E to, int weight)
+    public void setWeight(E from, E to, String name, int weight)
     {
         //TODO: if there is an edge between them, set the weight between from and to
         if(super.hasEdge(from, to)){
 
-            weights.get(from).put(to, weight);
+            ArrayList<Object> properties = new ArrayList<Object>();
+            properties.add(to);
+            properties.add(name);
+            properties.add(weight);
+            weights.get(from).add(properties);
+
         }
     }
 
@@ -78,7 +83,7 @@ public class WeightedAdjacencyListGraph<E> extends AdjacencyListGraph<E> impleme
             return 0;
         //TODO: check if a weight has been set between from and to, If not, return 0
         //      HINT: Integer objects can be null...
-        if (!weights.get(from).containsKey(to) || weights.get(from).get(to) == null) 
+        if (!weights.get(from).contains(to) || weights.get(from).get(to) == null) 
             return 0;
 
         //TODO: return the weight between from and to

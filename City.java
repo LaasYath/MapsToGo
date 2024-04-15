@@ -11,13 +11,16 @@ public class City
 {
     // instance variables - replace the example below with your own
     private WeightedAdjacencyListGraph city;
+    //test for pushing at school
 
     /**
      * Constructor for objects of class CityMap
      */
     public City()
     {
+        weights = new HashMap<E, Map<E, Integer>>();
         // initialise instance variables
+        
         city = null;
     }
 }
